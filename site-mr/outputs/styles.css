@@ -1182,13 +1182,14 @@ footer p {
 }
 
 .partner-logo-wide {
-  width: 128px;
-  height: 92px;
+  width: 116px;
+  height: 116px;
   background: #080915;
 }
 
 .partner-logo-wide img {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 6px;
 }
 
 .partner-card:hover .partner-logo {
@@ -1242,7 +1243,7 @@ footer p {
 }
 
 .partner-card.gcl .partner-logo img {
-  object-position: center 44%;
+  object-position: center;
 }
 
 .site-footer {
