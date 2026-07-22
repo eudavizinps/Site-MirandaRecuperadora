@@ -109,6 +109,44 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   startAutoPlay();
 });
 
+const header = document.querySelector(".site-header");
+
+if (header) {
+  const syncHeader = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 18);
+  };
+
+  syncHeader();
+  window.addEventListener("scroll", syncHeader, { passive: true });
+}
+
+const animatedElements = document.querySelectorAll(
+  ".section-heading, .metric-grid article, .flow-item, .presence-grid > *, .partner-card, .testimonial-card, .site-footer > *"
+);
+
+if (animatedElements.length) {
+  animatedElements.forEach((element, index) => {
+    element.classList.add("reveal", `reveal-delay-${(index % 4)}`);
+  });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -40px" }
+    );
+
+    animatedElements.forEach((element) => observer.observe(element));
+  } else {
+    animatedElements.forEach((element) => element.classList.add("is-visible"));
+  }
+}
+
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 
