@@ -17,3 +17,11 @@ O topo do site organiza os links principais para Quem somos, Solucoes, Indicador
 Os botoes comerciais foram configurados para WhatsApp, direcionando o visitante para os numeros definidos durante o desenvolvimento. O botao Setor Comercial encaminha para o contato comercial, enquanto o botao Negocie suas dividas encaminha para o atendimento de negociacao de debitos.
 
 Tambem foram adicionados botoes para Facebook e LinkedIn, mantendo os links oficiais informados para a presenca digital da empresa.
+
+## Responsividade
+
+O layout foi ajustado para funcionar em celulares, smartphones, tablets, notebooks e desktops. As secoes usam medidas fluidas, grids responsivos e limites de largura para evitar textos estourando ou elementos fora da tela.
+
+Em telas menores, o menu completo do topo e substituido por um botao de tres barras. Ao abrir, o visitante encontra os mesmos caminhos essenciais do desktop: Quem somos, Solucoes, Indicadores, Parcerias, Depoimentos, Trabalhe Conosco, Negocie seus debitos, redes sociais e Setor Comercial.
+
+Os carrosseis, cards e botoes tambem foram adaptados para toque e arraste, garantindo uma experiencia mais natural em dispositivos moveis.
