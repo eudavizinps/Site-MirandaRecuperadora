@@ -41,3 +41,11 @@ A secao Solucoes foi redesenhada com uma apresentacao propria, sem copiar o mode
 Os cards usam icones, cores do sistema e animacoes de hover para transmitir uma jornada organizada de cobranca e recuperacao.
 
 A secao Indicadores registra os numeros finais definidos para a operacao: mais de 70 parceiros ativos com a empresa, mais de 22 mil eventos de cobranca por mes, 4 etapas de processo e 100% de foco em relacionamento, registro e recuperacao.
+
+## Parcerias
+
+A secao Parcerias foi convertida em carrossel automatico, com suporte a arraste pelo mouse ou toque e setas laterais para navegacao manual.
+
+Foram incluidos os parceiros ANDIPET, Rede PetroBC, ACIM, Linavet, N+ Distribuidora, Jevin, Cotima e GCL Technology. Cada card possui logo, nome e descricao curta do parceiro, mantendo o padrao visual azul e branco do site.
+
+A mensagem da secao foi definida como: "Grandes resultados nascem de relacoes bem conduzidas, com respeito e transparencia".
