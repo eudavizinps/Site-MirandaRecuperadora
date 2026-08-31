@@ -57,3 +57,11 @@ A area de Depoimentos foi criada abaixo de Parcerias em formato de carrossel pro
 Foram cadastrados depoimentos de Lucia Carvalho, Franciso Navega e Claudio Mattos, cada um com foto, cargo, avaliacao visual por estrelas e texto do depoimento.
 
 O objetivo desta secao e reforcar confianca, transparencia, relacionamento e resultados obtidos com parceiros reais da empresa.
+
+## Rodape, animacoes e manutencao
+
+O rodape foi configurado com endereco, CNPJ, e-mail de contato, redes sociais e copyright da MR Recuperadora de Credito. O credito "Desenvolvido por GCL Technology" foi transformado em link clicavel para o site da empresa desenvolvedora.
+
+O site recebeu animacoes sutis de entrada, efeitos de hover em botoes, cards e logos, alem de comportamento visual no cabecalho durante a rolagem. As animacoes respeitam a preferencia de reducao de movimento do dispositivo.
+
+Para manutencao, os textos e secoes principais ficam em `outputs/index.html`, os estilos em `outputs/styles.css`, as interacoes em `outputs/script.js` e as imagens em `outputs/assets/`.
