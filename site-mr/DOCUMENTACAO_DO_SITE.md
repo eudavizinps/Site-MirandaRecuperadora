@@ -49,3 +49,11 @@ A secao Parcerias foi convertida em carrossel automatico, com suporte a arraste 
 Foram incluidos os parceiros ANDIPET, Rede PetroBC, ACIM, Linavet, N+ Distribuidora, Jevin, Cotima e GCL Technology. Cada card possui logo, nome e descricao curta do parceiro, mantendo o padrao visual azul e branco do site.
 
 A mensagem da secao foi definida como: "Grandes resultados nascem de relacoes bem conduzidas, com respeito e transparencia".
+
+## Depoimentos
+
+A area de Depoimentos foi criada abaixo de Parcerias em formato de carrossel profissional, com cards proporcionais, passagem automatica, setas laterais e interacao por arraste.
+
+Foram cadastrados depoimentos de Lucia Carvalho, Franciso Navega e Claudio Mattos, cada um com foto, cargo, avaliacao visual por estrelas e texto do depoimento.
+
+O objetivo desta secao e reforcar confianca, transparencia, relacionamento e resultados obtidos com parceiros reais da empresa.
