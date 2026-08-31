@@ -25,3 +25,11 @@ O layout foi ajustado para funcionar em celulares, smartphones, tablets, noteboo
 Em telas menores, o menu completo do topo e substituido por um botao de tres barras. Ao abrir, o visitante encontra os mesmos caminhos essenciais do desktop: Quem somos, Solucoes, Indicadores, Parcerias, Depoimentos, Trabalhe Conosco, Negocie seus debitos, redes sociais e Setor Comercial.
 
 Os carrosseis, cards e botoes tambem foram adaptados para toque e arraste, garantindo uma experiencia mais natural em dispositivos moveis.
+
+## Quem somos e atuacao nacional
+
+A secao Quem somos apresenta a MR Recuperadora de Credito como uma empresa especializada em cobranca e recuperacao de credito, com estrategia, excelencia e comprometimento.
+
+O texto institucional destaca mais de 13 anos de experiencia, atuacao em todo o territorio nacional e foco em performance, seguranca e resultados. Tambem reforca a combinacao entre tecnologia, atendimento humanizado e relacionamento proximo com parceiros.
+
+A imagem do mapa do Brasil foi incorporada para representar visualmente a atuacao nacional da empresa, mantendo o fundo congruente com a identidade clara da secao.
