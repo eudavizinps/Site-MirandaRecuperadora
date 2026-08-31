@@ -33,3 +33,11 @@ A secao Quem somos apresenta a MR Recuperadora de Credito como uma empresa espec
 O texto institucional destaca mais de 13 anos de experiencia, atuacao em todo o territorio nacional e foco em performance, seguranca e resultados. Tambem reforca a combinacao entre tecnologia, atendimento humanizado e relacionamento proximo com parceiros.
 
 A imagem do mapa do Brasil foi incorporada para representar visualmente a atuacao nacional da empresa, mantendo o fundo congruente com a identidade clara da secao.
+
+## Solucoes e indicadores
+
+A secao Solucoes foi redesenhada com uma apresentacao propria, sem copiar o modelo de referencia. Foram mantidas as frentes de Gestao de Recebiveis, Cobranca Preventiva, Cobranca Administrativa, Cobranca Extrajudicial e Cobranca Judicial.
+
+Os cards usam icones, cores do sistema e animacoes de hover para transmitir uma jornada organizada de cobranca e recuperacao.
+
+A secao Indicadores registra os numeros finais definidos para a operacao: mais de 70 parceiros ativos com a empresa, mais de 22 mil eventos de cobranca por mes, 4 etapas de processo e 100% de foco em relacionamento, registro e recuperacao.
