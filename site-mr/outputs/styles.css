@@ -1280,9 +1280,18 @@ footer p {
 }
 
 .footer-info a,
-.footer-copy span:last-child {
+.developer-link {
   color: var(--white);
   font-weight: 800;
+}
+
+.developer-link {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.developer-link:hover {
+  color: #8ecaff;
+  transform: translateY(-2px);
 }
 
 .footer-copy {
