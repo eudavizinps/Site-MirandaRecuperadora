@@ -1720,3 +1720,18 @@ footer p {
     transform: none;
   }
 }
+
+
+/* Mantém o menu Contato sem seta e acessível ao mover o mouse. */
+.nav-trigger::after {
+  display: none;
+}
+
+.nav-dropdown::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  content: "";
+}
