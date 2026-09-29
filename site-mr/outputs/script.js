@@ -4,8 +4,29 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const previous = carousel.querySelector("[data-prev]");
   const next = carousel.querySelector("[data-next]");
   const status = carousel.querySelector("[data-status]");
-  let current = 0;
+  const loopsContinuously = carousel.dataset.loop === "true" && slides.length > 1;
+  let current = loopsContinuously ? slides.length : 0;
   let timer;
+
+  if (loopsContinuously) {
+    const before = slides.map((slide) => slide.cloneNode(true));
+    const after = slides.map((slide) => slide.cloneNode(true));
+    const beforeFragment = document.createDocumentFragment();
+
+    before.forEach((slide) => {
+      slide.dataset.carouselClone = "";
+      slide.setAttribute("aria-hidden", "true");
+      slide.setAttribute("tabindex", "-1");
+      beforeFragment.appendChild(slide);
+    });
+    track.insertBefore(beforeFragment, track.firstChild);
+    after.forEach((slide) => {
+      slide.dataset.carouselClone = "";
+      slide.setAttribute("aria-hidden", "true");
+      slide.setAttribute("tabindex", "-1");
+      track.appendChild(slide);
+    });
+  }
 
   const visibleCards = () => {
     const desktop = Number(carousel.dataset.visibleDesktop || 2);
@@ -22,25 +43,56 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     return slides[0].getBoundingClientRect().width + gap;
   };
 
+  const logicalIndex = () => loopsContinuously
+    ? ((current - slides.length) % slides.length + slides.length) % slides.length
+    : current;
+
+  const normalizeLoopPosition = () => {
+    if (!loopsContinuously) return;
+
+    if (current >= slides.length * 2) current -= slides.length;
+    else if (current < slides.length) current += slides.length;
+    else return;
+
+    track.style.transition = "none";
+    render();
+    track.getBoundingClientRect();
+    track.style.transition = "";
+  };
+
   const render = () => {
     slides.forEach((slide, index) => {
-      slide.classList.toggle("is-active", index === current);
+      slide.classList.toggle("is-active", index === logicalIndex());
     });
 
     const visible = visibleCards();
     const maximum = maxIndex();
-    current = Math.min(current, maximum);
-    if (status) status.textContent = visible > 1 ? `${current + 1}-${Math.min(current + visible, slides.length)} / ${slides.length}` : `${current + 1} / ${slides.length}`;
-    if (previous) previous.disabled = maximum === 0;
-    if (next) next.disabled = maximum === 0;
+    if (!loopsContinuously) current = Math.min(current, maximum);
+    const firstVisible = logicalIndex();
+    if (status) status.textContent = visible > 1 ? `${firstVisible + 1}-${Math.min(firstVisible + visible, slides.length)} / ${slides.length}` : `${firstVisible + 1} / ${slides.length}`;
+    if (previous) previous.disabled = loopsContinuously ? slides.length <= visible : maximum === 0;
+    if (next) next.disabled = loopsContinuously ? slides.length <= visible : maximum === 0;
     track.style.transform = `translateX(-${current * cardStep()}px)`;
   };
 
   const show = (index) => {
+    if (loopsContinuously) {
+      current = index;
+      render();
+      window.setTimeout(normalizeLoopPosition, 450);
+      return;
+    }
     const maximum = maxIndex();
     current = maximum === 0 ? 0 : (index + maximum + 1) % (maximum + 1);
     render();
   };
+
+  if (loopsContinuously) {
+    track.addEventListener("transitionend", (event) => {
+      if (event.propertyName !== "transform") return;
+      normalizeLoopPosition();
+    });
+  }
 
   if (previous) previous.addEventListener("click", () => {
     stopAutoPlay();
@@ -54,7 +106,9 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   });
 
   const startAutoPlay = () => {
+    stopAutoPlay();
     if (maxIndex() === 0) return;
+    if (carousel.matches(":hover") || carousel.contains(document.activeElement)) return;
     timer = window.setInterval(() => show(current + 1), 7000);
   };
 
@@ -63,7 +117,10 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   carousel.addEventListener("mouseleave", startAutoPlay);
   carousel.addEventListener("focusin", stopAutoPlay);
   carousel.addEventListener("focusout", startAutoPlay);
-  window.addEventListener("resize", render);
+  window.addEventListener("resize", () => {
+    if (loopsContinuously) current = slides.length + logicalIndex();
+    render();
+  });
 
   if (carousel.dataset.drag === "true") {
     let startX = 0;
@@ -71,7 +128,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     let dragging = false;
 
     carousel.addEventListener("pointerdown", (event) => {
-      if (event.button !== 0 || event.target.closest("button")) return;
+      if (event.button !== 0 || event.target.closest("button, a")) return;
       stopAutoPlay();
       startX = event.clientX;
       deltaX = 0;
@@ -105,7 +162,12 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     carousel.addEventListener("pointercancel", finishDrag);
   }
 
+  if (loopsContinuously) track.style.transition = "none";
   render();
+  if (loopsContinuously) {
+    track.getBoundingClientRect();
+    track.style.transition = "";
+  }
   startAutoPlay();
 });
 
@@ -121,7 +183,7 @@ if (header) {
 }
 
 const animatedElements = document.querySelectorAll(
-  ".section-heading, .metric-grid article, .flow-item, .presence-grid > *, .partner-card, .testimonial-card, .site-footer > *"
+  ".section-heading, .metric-grid article, .flow-item, .presence-grid > *, .testimonial-card, .site-footer > *"
 );
 
 if (animatedElements.length) {
