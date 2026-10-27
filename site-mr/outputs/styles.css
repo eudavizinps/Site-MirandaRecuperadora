@@ -1138,6 +1138,15 @@ footer p {
   box-shadow: 0 26px 52px rgba(7, 29, 73, 0.14);
 }
 
+a.partner-card {
+  cursor: pointer;
+}
+
+a.partner-card:focus-visible {
+  outline: 3px solid var(--blue-600);
+  outline-offset: 4px;
+}
+
 .partner-card,
 .metric-grid article,
 .flow-item,
